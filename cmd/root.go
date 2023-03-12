@@ -4,29 +4,74 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"bufio"
+	"context"
 	"fmt"
 	"os"
 
+	"github.com/sashabaranov/go-openai"
 	"github.com/spf13/cobra"
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "chatgptdash",
-	Short: "A brief description of your application",
-	Long:  `chatgptdash -d`,
+	Short: "Will Call Chat GPT and get the information from the command line it self",
+	Long:  `chatgptdash -t`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
-		flagval, err := cmd.Flags().GetBool("differentmessage")
+		// flagval, err := cmd.Flags().GetBool("token")
+		// if err != nil {
+		// 	return
+		// }
+		// if flagval {
+		// 	value :=
+		// }
+		value := os.Getenv("OPENAI_TOKEN")
+
+		// if value == "" {
+		// 	reader2 := bufio.NewReader(os.Stdin)
+		// 	fmt.Print("No ENV Variable as OPENAI_TOKEN found. Please enter the Open AI Token from  https://platform.openai.com/account/api-keys: ")
+
+		// 	value, err := reader2.ReadString('\n')
+
+		// 	if err != nil {
+		// 		panic(err)
+		// 	}
+
+		// 	// fmt.Println(value)
+
+		// }
+
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Print("Ask to chat gpt: ")
+		text, err := reader.ReadString('\n')
 		if err != nil {
-			return
+			panic(err)
 		}
-		if flagval {
-			fmt.Println("Hello World Alternative")
-			return
+
+		c := openai.NewClient(value)
+
+		resp, err := c.CreateChatCompletion(
+			context.Background(),
+			openai.ChatCompletionRequest{
+				Model: openai.GPT3Dot5Turbo,
+				Messages: []openai.ChatCompletionMessage{
+					{
+						Role:    "user",
+						Content: text,
+					},
+				},
+			},
+		)
+
+		if err != nil {
+			panic(err)
 		}
-		fmt.Println("Hello World")
+
+		fmt.Println(resp.Choices[0].Message.Content)
+		fmt.Println()
 	},
 }
 
@@ -40,5 +85,6 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().BoolP("differentmessage", "d", false, "Toogle a different message")
+	// rootCmd.Flags().BoolP("token", "t", false, "Open AI Token")
+	rootCmd.Flags()
 }
