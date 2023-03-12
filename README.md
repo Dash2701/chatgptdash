@@ -46,11 +46,12 @@ chatgptdash -t "You Secret Key"
 Output
 
 ```
-chatgptdash                                                                                                        
-Ask to chat gpt: What is G20 hosted?  
+chatgptdash                                                                                                                                 ✔  
+Ask to chat gpt: Where is the G20 Hosted?
 
 
-The G20 (Group of Twenty) is a summit of the leaders of the world's largest economies, representing 85% of global GDP (Gross Domestic Product). The host country of the G20 summit rotates annually among its members, who include Argentina, Australia, Brazil, Canada, China, France, Germany, India, Indonesia, Italy, Japan, Mexico, Russia, Saudi Arabia, South Africa, South Korea, Turkey, the United Kingdom, and the United States. The G20 summit tackles a wide range of issues, including global economic growth, trade, financial regulation, climate change, and humanitarian concerns. The host country sets the agenda of the summit, and the meetings are typically attended by high-level officials from the participating countries, including heads of state or government, ministers, and central bank governors.
+The G20 is hosted in different countries each year. The host country rotates annually among the G20 members, which include Argentina, Australia, Brazil, Canada, China, France, Germany, India, Indonesia, Italy, Japan, Mexico, Russia, Saudi Arabia, South Africa, South Korea, Turkey, the United Kingdom, the United States, and the European Union. The most recent G20 Summit was hosted by Saudi Arabia in 2020. The upcoming G20 Summit is scheduled to be held in Italy in 2021.
+
 ```
 
 ## Contributing
