@@ -43,7 +43,7 @@ chatgptdash
 chatgptdash -t "You Secret Key"
 ```
 
-
+Output
 
 ```
 chatgptdash                                                                                                        
