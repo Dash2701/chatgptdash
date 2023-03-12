@@ -19,12 +19,12 @@ universal_binaries:
 
 brews: 
  - name: chatgptdash
-   homepage: https://github.com/dash27/chatgptdash
+   homepage: https://github.com/dash2701/chatgptdash
    tap: 
-     owner: dash27
-     name: homebrew-dash27
+     owner: dash2701
+     name: homebrew-dash2701
    commit_author:
-     name: dash27
+     name: dash2701
      email: amitdash8811@gmail.com
 
 checksum:
