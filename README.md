@@ -26,7 +26,7 @@ https://platform.openai.com/account/api-keys
 After Generating the key, pass it as an environment varibale like,
 
 ``` 
-exportOPENAI_TOKEN="Your Secret Key"
+export OPENAI_TOKEN="Your Secret Key"
 ```
 
 or else you can pass the token with -t flag.
@@ -36,6 +36,13 @@ Access it by entering the command
 ```
 chatgptdash
 ```
+ 
+ or in case you don't want token in Environment Variable
+
+```
+chatgptdash -t "You Secret Key"
+```
+
 
 
 ```
