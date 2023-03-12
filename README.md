@@ -1,7 +1,10 @@
 # chatgptdash
 
+
 ## What is it
 This is a command line tool to access Chat GPT from command line.  This is build using Go.
+
+Medium Link: https://dashdevops.medium.com/using-chatgpt-from-a-mac-os-terminal-1a1314821667
 
 ## How to Install
 
