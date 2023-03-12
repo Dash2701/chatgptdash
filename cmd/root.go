@@ -21,14 +21,19 @@ var rootCmd = &cobra.Command{
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
-		// flagval, err := cmd.Flags().GetBool("token")
-		// if err != nil {
-		// 	return
-		// }
-		// if flagval {
-		// 	value :=
-		// }
-		value := os.Getenv("OPENAI_TOKEN")
+		var openaiToken string
+		flagval, err := cmd.Flags().GetBool("token")
+		if err != nil {
+			return
+		}
+		if flagval {
+			openaiToken = args[0]
+		}
+
+		if openaiToken == "" {
+			openaiToken = os.Getenv("OPENAI_TOKEN")
+		}
+		value := openaiToken
 
 		// if value == "" {
 		// 	reader2 := bufio.NewReader(os.Stdin)
@@ -43,6 +48,9 @@ var rootCmd = &cobra.Command{
 		// 	// fmt.Println(value)
 
 		// }
+
+		// print(args[0])
+		// text := args[0]
 
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Ask to chat gpt: ")
@@ -85,6 +93,6 @@ func Execute() {
 }
 
 func init() {
-	// rootCmd.Flags().BoolP("token", "t", false, "Open AI Token")
-	rootCmd.Flags()
+	rootCmd.Flags().BoolP("token", "t", false, "Open AI Token")
+	// rootCmd.Flags()
 }
